@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+class Bank {
+    String getRate() {
+        return "0%";
+    }
+}
+
+class SBI extends Bank {
+    String getRate() {
+        return "6.5%";
+    }
+}
+
+class HDFC extends Bank {
+    String getRate() {
+        return "7.0%";
+    }
+}
+class ICICI extends Bank {
+    String getRate() {
+        return "6.8%";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String bankName = sc.nextLine();
+
+        Bank bank;
+
+        switch (bankName) {
+            case "SBI":
+                bank = new SBI();
+                break;
+            case "HDFC":
+                bank = new HDFC();
+                break;
+            case "ICICI":
+                bank = new ICICI();
+                break;
+            default:
+                System.out.println("Invalid Bank");
+                return;
+        }
+
+        System.out.println(bank.getRate());
+    }
+}
